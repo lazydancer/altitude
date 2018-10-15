@@ -1,5 +1,4 @@
 import React from 'react'
-import events from './events'
 import BigCalendar from 'react-big-calendar'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
@@ -16,7 +15,7 @@ class Dnd extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      events: events,
+      events: props.events,
     }
 
     this.moveEvent = this.moveEvent.bind(this)
@@ -94,6 +93,7 @@ class Dnd extends React.Component {
         onSelectSlot={this.newEvent}
         onSelectEvent={this.selectEvent}
         defaultDate={new Date(2015, 3, 12)}
+        defaultView={BigCalendar.Views.DAY}
       />
     )
   }
