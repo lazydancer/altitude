@@ -1,6 +1,5 @@
 import React from 'react';
 import Sidebar from './Sidebar'
-import Dnd from './DraganddropCalendar'
 import VisibleCalendar from '../containers/VisibleCalendar'
 
 import './App.css';

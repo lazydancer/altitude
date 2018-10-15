@@ -62,7 +62,10 @@ class Dnd extends React.Component {
     //alert(`${event.title} was resized to ${start}-${end}`)
   }
 
+  
   newEvent(event) {
+    this.props.newEvent('newEvent', event.start, event.end)
+    /*
      let idList = this.state.events.map(a => a.id)
      let newId = Math.max(...idList) + 1
      let hour = {
@@ -75,7 +78,10 @@ class Dnd extends React.Component {
      this.setState({
        events: this.state.events.concat([hour]),
      })
+     */
   }
+  
+
 
   selectEvent(event){
     console.log(event)

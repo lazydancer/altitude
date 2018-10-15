@@ -107,6 +107,16 @@ let initalValue = [
 
 const events = (state = initalValue, action ) => {
   switch (action.type) {
+    case 'ADD_EVENT':
+      return [
+        ...state,
+        {
+          id: action.id,
+          title: action.title,
+          start: action.start,
+          end: action.end
+        }
+      ]
     default:
       return state
   }
