@@ -9,11 +9,20 @@ describe('selectedEvent reducer', () => {
 
   it('should handle SELECT_EVENT', () => {
     expect(
-      selectedEvent(undefined, {
+      selectedEvent(null, {
         type: 'SELECT_EVENT',
-        id: "usally generated string by uuid"
+        event: {
+          id: "usally generated string by uuid",
+          title: "A title",
+          start: "2015-04-12T14:30:00.000Z",
+          end: "2015-04-12T16:30:00.000Z"
+        }
       })
-    ).toEqual({ id: "usally generated string by uuid"}
-    )
+    ).toEqual({ 
+      id: "usally generated string by uuid",
+      title: "A title",
+      start: "2015-04-12T14:30:00.000Z",
+      end: "2015-04-12T16:30:00.000Z"
+    })
   })
 })

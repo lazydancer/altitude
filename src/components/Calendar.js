@@ -3,7 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
-import './Calendar.css'
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
