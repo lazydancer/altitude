@@ -1,16 +1,25 @@
 import { connect } from 'react-redux'
-import { addEvent } from '../actions'
-import Dnd from '../components/DraganddropCalendar'
+import { addEvent, moveEvent } from '../actions'
+import Calendar from '../components/DraganddropCalendar'
 
 const mapStateToProps = state => ({
   events: state.events
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  newEvent: (title, start, end) => 
-    dispatch(addEvent(title, start, end))
+const mapDispatchToProps = dispatch => ({
+  newEvent: (event) => {
+    dispatch(addEvent("new event", event.start, event.end))
+  },
+
+  resizeEvent: ({ event, start, end }) => {
+    dispatch(moveEvent(event.id, start, end))
+  }
+
+
+
 })
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
-)(Dnd)
+  mapStateToProps, 
+  mapDispatchToProps
+)(Calendar)
