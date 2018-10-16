@@ -105,4 +105,4 @@ let mockEvents = [
   },
 ]
 
-export mockEvents
+export default mockEvents

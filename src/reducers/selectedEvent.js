@@ -1,8 +1,11 @@
-const SelectedEvent = (state = null, action ) => {
+const selectedEvent = (state = null, action ) => {
   switch (action.type) {
     case 'SELECT_EVENT':
-      return action.id
+      return {id: action.id}
     default:
       return state
   }
 }
+
+
+export default selectedEvent

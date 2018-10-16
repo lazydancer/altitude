@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  newEvent: (event) => {
+  newEvent: event => {
     dispatch(addEvent("new event", event.start, event.end))
   },
 
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(moveEvent(event.id, start, end))
   },
 
-  selectEvent: (event) => {
+  selectEvent: event => {
     dispatch(selectEvent(event.id))
   }
 })
