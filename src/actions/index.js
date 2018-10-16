@@ -15,3 +15,8 @@ export const moveEvent = (id, start, end) => ({ //move and resize
   end
 })
 
+export const selectEvent = id => ({
+  type: 'SELECT_EVENT',
+  id
+})
+
