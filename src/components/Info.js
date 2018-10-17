@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-
+import { Button } from 'evergreen-ui'
 
 const Info = ({ selectedEvent, updateEvent}) => {
 
@@ -32,6 +32,7 @@ const Info = ({ selectedEvent, updateEvent}) => {
         </form>
         <p>{selectedEvent.id}</p>
         <p>{selectedEvent.title}</p>
+        <Button>I am using Evergreen!</Button>
     </div>
   )
   
