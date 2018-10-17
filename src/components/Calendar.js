@@ -19,7 +19,7 @@ const Calendar = ({events, newEvent, moveEvent, selectEvent}) => (
     onEventResize={moveEvent}
     onSelectSlot={newEvent}
     onSelectEvent={selectEvent}
-    defaultDate={new Date(2015, 3, 12)}
+    defaultDate={new Date()}
     defaultView={BigCalendar.Views.DAY}
   />
 )

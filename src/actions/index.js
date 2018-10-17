@@ -8,6 +8,14 @@ export const addEvent = (title, start, end) => ({
   end
 })
 
+export const updateEvent = (id, title, start, end) => ({ //move and resize
+  type: 'UPDATE_EVENT',
+  id,
+  title,
+  start,
+  end
+})
+
 export const moveEvent = (id, start, end) => ({ //move and resize
   type: 'MOVE_EVENT',
   id,

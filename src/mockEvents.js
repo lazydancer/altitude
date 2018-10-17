@@ -1,4 +1,10 @@
-let mockEvents = [
+import { addEvent } from './actions'
+
+const mockEvents = () => {
+  addEvent('All Day Event very long title',new Date(2018, 9, 17, 11),new Date(2018, 9, 17, 13))
+} 
+
+let AmockEvents = [
   {
     id: 0,
     title: 'All Day Event very long title',
