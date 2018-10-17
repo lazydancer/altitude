@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Button } from 'evergreen-ui'
+import { Button, SideSheet } from 'evergreen-ui'
 
 const Info = ({ selectedEvent, updateEvent}) => {
 
@@ -11,6 +11,16 @@ const Info = ({ selectedEvent, updateEvent}) => {
       </div>
     )
   }
+
+  return (
+    <SideSheet
+      isShown={selectedEvent !== null}
+    >
+    <p>The SideSheet is here</p>
+    </SideSheet>
+  )
+
+  /*
 
   let input
 
@@ -36,6 +46,8 @@ const Info = ({ selectedEvent, updateEvent}) => {
     </div>
   )
   
+  */
+
 
 }
 

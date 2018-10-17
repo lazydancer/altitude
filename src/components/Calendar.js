@@ -12,7 +12,7 @@ const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 let localizer = BigCalendar.momentLocalizer(moment)
 
 const Calendar = ({events, newEvent, moveEvent, selectEvent}) => (
-  <Pane padding={16} background="tint1" flex="1">
+  <Pane padding={16} flex="1">
   <DragAndDropCalendar
     selectable
     localizer={localizer}
