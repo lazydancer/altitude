@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Dialog, Autocomplete, TextInput } from 'evergreen-ui'
+import { Select, Dialog, Autocomplete, TextInput } from 'evergreen-ui'
 
 const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
 
   if(!selectedEvent){
     return (
       <div className="info">
-          <p>None Selected !</p>
       </div>
     )
   }
 
   let input = selectedEvent.title
+  console.log(projectList)
 
   return (
     <Dialog
@@ -23,10 +23,14 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
         closeEvent()
       }}
     >
-    <TextInput
+    <Select
       onChange={e => { input = e.target.value}}
-      placeholder={"Enter Project"}
-      />
+    >
+      <option value=""></option>
+      {projectList.map(p => 
+        <option key={p} value={p}>{p}</option>
+      )}
+    </Select>
 
     <p>{selectedEvent.id}</p>
 

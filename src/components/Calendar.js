@@ -21,8 +21,11 @@ const Calendar = ({events, newEvent, moveEvent, selectEvent}) => (
       events={events}
       onEventDrop={moveEvent}
       resizable
+      step={60}
+      timeslots={1}
       onEventResize={moveEvent}
       onSelectSlot={newEvent}
+      views={['day']}
       onSelectEvent={selectEvent}
       defaultDate={new Date()}
       defaultView={BigCalendar.Views.DAY}

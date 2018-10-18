@@ -13,6 +13,22 @@
 }
 
 /*
+  Hide Allday through CSS
+*/
+
+.rbc-time-view .rbc-row {
+    min-height: 0px;
+}
+
+.rbc-time-view .rbc-row div:nth-child(1) {
+    height: 0px !important;
+}
+
+button.rbc-event-allday {
+  display: none;
+}
+
+/*
 .sidebar {
   float: left;
   width: 80px;

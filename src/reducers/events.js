@@ -1,7 +1,7 @@
 let initalState = [
   {
     id: 0,
-    title: 'Bug Fix', //Having this event load vs an empty array  
+    title: '', //Having this event load vs an empty array  
     allDay: true,     //avoids the two click needed to do anything
     start: new Date(),
     end: new Date(),
