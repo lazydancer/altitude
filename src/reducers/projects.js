@@ -1,20 +1,13 @@
-let testingState = [
-  {
-    id: "asdf",
-    title: "Sleep"
-  },
-   {
-    id: "asddf",
-    title: "Mange"
-  },
-  {
-    id: "assdf",
-    title: "Cherche"
-  },
-]
-
-const projects = (state = testingState, action ) => {
+const projects = (state = [], action ) => {
   switch(action.type){
+    case 'ADD_PROJECT':
+      return [
+        ...state,
+        {
+          id: action.id,
+          title: action.title
+        }
+      ]
     default:
       return state
   }

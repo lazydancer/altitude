@@ -32,3 +32,12 @@ export const unSelectEvent = () => ({
   type: 'UNSELECT_EVENT'
 })
 
+export const addProject = (title) => ({
+  type: 'ADD_PROJECT',
+  id: v4(),
+  title
+})
+
+export const toggleProjectDialog = () => ({
+  type: 'TOGGLE_PROJECT_DIALOG'
+})
