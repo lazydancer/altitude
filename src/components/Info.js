@@ -23,28 +23,11 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
         closeEvent()
       }}
     >
-    
-      <Autocomplete
-        title="Projects"
-        onChange={changedItem => console.log(changedItem)}
-        items={projectList}
-      >
-        {(props) => {
-          const { getInputProps, getRef, openMenu } = props
-          return (
-            <TextInput
-              placeholder="Enter Project"
-              value={input}
-              innerRef={getRef}
-              {...getInputProps({
-                onFocus: () => {
-                  openMenu()
-                }
-              })}
-            />
-          )
-        }}
-      </Autocomplete>
+    <TextInput
+      onChange={e => { input = e.target.value}}
+      placeholder={"Enter Project"}
+      />
+
     <p>{selectedEvent.id}</p>
 
     </Dialog>
