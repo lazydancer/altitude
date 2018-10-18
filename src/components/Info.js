@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Button, SideSheet } from 'evergreen-ui'
+import { Button, SideSheet, Dialog } from 'evergreen-ui'
 
 const Info = ({ selectedEvent, updateEvent}) => {
 
@@ -13,11 +13,13 @@ const Info = ({ selectedEvent, updateEvent}) => {
   }
 
   return (
-    <SideSheet
+    <Dialog
       isShown={selectedEvent !== null}
+      title="Edit"
     >
-    <p>The SideSheet is here</p>
-    </SideSheet>
+      <p>{selectedEvent.title}</p>
+      <p>{selectedEvent.id}</p>
+    </Dialog>
   )
 
   /*
