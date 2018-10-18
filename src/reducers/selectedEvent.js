@@ -7,6 +7,8 @@ const selectedEvent = (state = null, action ) => {
           start: action.event.start,
           end: action.event.end
       })
+    case 'UNSELECT_EVENT':
+      return null
     default:
       return state
   }

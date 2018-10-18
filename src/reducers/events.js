@@ -1,4 +1,3 @@
-
 let initalState = [
   {
     id: 0,

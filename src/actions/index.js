@@ -28,3 +28,7 @@ export const selectEvent = (event) => ({
   event
 })
 
+export const unSelectEvent = () => ({
+  type: 'UNSELECT_EVENT'
+})
+

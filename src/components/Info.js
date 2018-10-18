@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Button, SideSheet, Dialog } from 'evergreen-ui'
+import { Dialog, Autocomplete, TextInput } from 'evergreen-ui'
 
-const Info = ({ selectedEvent, updateEvent}) => {
+const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
 
   if(!selectedEvent){
     return (
@@ -12,13 +12,41 @@ const Info = ({ selectedEvent, updateEvent}) => {
     )
   }
 
+  let input = selectedEvent.title
+
   return (
     <Dialog
       isShown={selectedEvent !== null}
       title="Edit"
+      onCloseComplete={() => {
+        updateEvent(selectedEvent.id, input, selectedEvent.start, selectedEvent.end)
+        closeEvent()
+      }}
     >
-      <p>{selectedEvent.title}</p>
-      <p>{selectedEvent.id}</p>
+    
+      <Autocomplete
+        title="Projects"
+        onChange={changedItem => console.log(changedItem)}
+        items={projectList}
+      >
+        {(props) => {
+          const { getInputProps, getRef, openMenu } = props
+          return (
+            <TextInput
+              placeholder="Enter Project"
+              value={input}
+              innerRef={getRef}
+              {...getInputProps({
+                onFocus: () => {
+                  openMenu()
+                }
+              })}
+            />
+          )
+        }}
+      </Autocomplete>
+    <p>{selectedEvent.id}</p>
+
     </Dialog>
   )
 
