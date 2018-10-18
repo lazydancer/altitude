@@ -8,7 +8,7 @@ let input = ""
 
 const Sidebar = ({projectList, projectDialog, addProject, toggleProjectDialog}) => (
   <Pane background="tint2">
-    <Button appearance="minimal" marginTop={20} marginLeft={4}>Today</Button>
+    <Button is={Link} to={"/"} appearance="minimal" marginTop={20} marginLeft={4}>Today</Button>
     <TabNavigation width={200} padding={20} marginBottom={16}>
       {projectList.map((tab, index) => (
         <SidebarTab
