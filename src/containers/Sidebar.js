@@ -8,21 +8,22 @@ let input = ""
 
 const Sidebar = ({projectList, projectDialog, addProject, toggleProjectDialog}) => (
   <Pane background="tint2">
-    <Button is={Link} to={"/"} appearance="minimal" marginTop={20} marginLeft={4}>Today</Button>
     <TabNavigation width={200} padding={20} marginBottom={16}>
+      <SidebarTab key='Today' is={Link} to={"/"} id='Today'>Today</SidebarTab>
+      <SidebarTab key='Space' id='Space'></SidebarTab>
       {projectList.map((tab, index) => (
         <SidebarTab
           key={tab}
           is={Link}
           to={"/project/" + tab}
           id={tab}
-          isSelected={index === 0}
+          /*isSelected={index === 0}*/
         >
           {tab}
         </SidebarTab>
       ))}
+      <SidebarTab onClick={()=>toggleProjectDialog()}>+ Add Project</SidebarTab>
     </TabNavigation>
-    <Button onClick={()=>toggleProjectDialog()} appearance="minimal">Add Project</Button>
   
     <Dialog
       isShown={projectDialog}

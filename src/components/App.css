@@ -1,15 +1,5 @@
 .App {
-  text-align: center;
-  height:800px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-link {
-  color: #61dafb;
+ /* height:800px; */
 }
 
 /*
@@ -19,26 +9,40 @@
 .rbc-time-view .rbc-row {
     min-height: 0px;
 }
-
 .rbc-time-view .rbc-row div:nth-child(1) {
     height: 0px !important;
 }
-
 button.rbc-event-allday {
   display: none;
 }
+.rbc-time-content {
+  border:none;
+}
+
 
 /*
-.sidebar {
-  float: left;
-  width: 80px;
-  height: 100%;
-  color: white;
-  background: grey;
-}
-
-
-.rbc-calendar {
-  float: left;
-}
+  Removing Borders
 */
+.rbc-time-view {
+  border:none;
+}
+.rbc-today {
+  background: none;
+}
+.rbc-timeslot-group {
+  border: none
+}
+
+/* 
+  Updating Style to match evergreen
+*/
+
+.rbc-time-slot {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: rgb(66, 90, 112);
+}
+
+.sidebar {
+  height: 100%;
+}
