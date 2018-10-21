@@ -1,16 +1,30 @@
-import { addEvent } from './actions'
-
-const mockEvents = () => {
-  addEvent('All Day Event very long title',new Date(2018, 9, 17, 11),new Date(2018, 9, 17, 13))
-} 
-
-let AmockEvents = [
+let mockEvents = { 
+  projects: [
   {
+    id: 'asdf',
+    title: 'Sleep',
+    hours: 0
+  },
+  {
+    id: 'asdd',
+    title: 'Eat',
+    hours: 0
+  },
+   {
+    id: 'afsdf',
+    title: 'Work',
+    hours: 0
+  },
+
+  ],
+
+  events: 
+  [{
     id: 0,
     title: 'All Day Event very long title',
     allDay: true,
-    start: new Date(2015, 3, 0),
-    end: new Date(2015, 3, 1),
+    start: new Date(2018, 9, 10, 9),
+    end: new Date(2018, 9, 10, 10),
   },
   {
     id: 1,
@@ -109,6 +123,12 @@ let AmockEvents = [
     start: new Date(new Date().setHours(new Date().getHours() - 3)),
     end: new Date(new Date().setHours(new Date().getHours() + 3)),
   },
-]
+  {
+  id: 15,
+    title: 'Today',
+    start: new Date(new Date().setHours(new Date().getHours() - 5)),
+    end: new Date(new Date().setHours(new Date().getHours() - 4)),
+  }
+]}
 
 export default mockEvents

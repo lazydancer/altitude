@@ -8,8 +8,11 @@ import App from './components/App'
 import rootReducer from './reducers'
 import './index.css'
 
+import mockEvents from './mockEvents'
+
 const store = createStore(rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  mockEvents
   )
 
 render(

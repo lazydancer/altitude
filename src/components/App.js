@@ -1,9 +1,7 @@
 import React from 'react';
-import Sidebar from '../containers/Sidebar'
-import VisibleCalendar from '../containers/VisibleCalendar'
-
-import Main from './Main'
 import { Pane } from 'evergreen-ui'
+import Main from './Main'
+import Sidebar from '../containers/Sidebar'
 
 import './App.css';
 

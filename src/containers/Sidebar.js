@@ -28,7 +28,7 @@ const Sidebar = ({projectList, projectDialog, addProject, toggleProjectDialog}) 
       isShown={projectDialog}
       title="Add Project"
       onCloseComplete={() => {
-        addProject(input)
+        if (input !== "") addProject(input)
         toggleProjectDialog()
       }}
     >

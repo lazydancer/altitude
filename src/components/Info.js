@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Select, Dialog, Autocomplete, TextInput } from 'evergreen-ui'
+import { Select, Dialog } from 'evergreen-ui'
 
 const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
 
