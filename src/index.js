@@ -7,13 +7,23 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './components/App'
 import rootReducer from './reducers'
 import './index.css'
+import { loadState, saveState } from './localStorage'
 
 import mockEvents from './mockEvents'
 
+const persistedState = loadState();
+
+console.log(persistedState)
+
 const store = createStore(rootReducer,
-//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  mockEvents
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   )
+
+store.subscribe(() => {
+  saveState(store.getState());
+})
+
 
 render(
   <Provider store={store}>

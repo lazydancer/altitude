@@ -6,7 +6,6 @@ const projects = (state = [], action ) => {
         {
           id: action.id,
           title: action.title,
-          hours: 0
         }
       ]
     default:

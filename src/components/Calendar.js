@@ -12,12 +12,15 @@ const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
 let localizer = BigCalendar.momentLocalizer(moment)
 
+let formats = {timeGutterFormat: 'HH'}
+
 const Calendar = ({events, newEvent, moveEvent, selectEvent}) => (
   <>
   <Pane padding={16} flex="1">
     <DragAndDropCalendar
       selectable
       localizer={localizer}
+      formats={formats}
       events={events}
       onEventDrop={moveEvent}
       resizable
