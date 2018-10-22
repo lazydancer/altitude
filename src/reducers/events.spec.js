@@ -95,4 +95,19 @@ describe('events reducer', () => {
         end: "2015-04-12T16:30:00.000Z" }
     ])
   })
+
+
+   it('should handle DELETE_EVENT', () => {
+    expect(
+      events([
+        { id: "usally generated string by uuid", 
+          title: "A new event", 
+          start: "2015-04-12T14:30:00.000Z", 
+          end: "2015-04-12T16:30:00.000Z"}
+        ], {
+          type:'DELETE_EVENT',
+          id: "usally generated string by uuid",
+        })
+    ).toEqual([])
+  })
 })

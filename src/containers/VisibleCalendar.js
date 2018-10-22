@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
 
   selectEvent: (event) => {
     dispatch(selectEvent(event))
-  }
+  },
 })
 
 

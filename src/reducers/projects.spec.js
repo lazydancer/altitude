@@ -17,7 +17,6 @@ describe('projects reducer', () => {
     ).toEqual([{ 
       id: 'Hello',
       title: 'Reading',
-      events: []
     }])
   })
 })

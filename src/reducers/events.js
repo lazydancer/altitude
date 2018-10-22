@@ -32,6 +32,9 @@ const events = (state = initalState, action ) => {
           ? {id: action.id, title: action.title, start: action.start, end: action.end}
           : existingEvent
       )
+    case 'DELETE_EVENT':
+      return state.filter(x => x.id !== action.id)
+      
     default:
       return state
   }

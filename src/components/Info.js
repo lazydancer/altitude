@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Select, Dialog } from 'evergreen-ui'
+import { Heading, Button, Select, Dialog } from 'evergreen-ui'
 
-const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
+const Info = ({ selectedEvent, projectList, updateEvent, closeEvent, deleteEvent}) => {
 
   if(!selectedEvent){
     return (
@@ -34,10 +34,19 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent}) => {
 
     <p>{selectedEvent.id}</p>
 
+    <Heading>Actions</Heading>
+
+    <Button intent="danger" appearance="primary" onClick={() => {
+      deleteEvent(selectedEvent.id)
+      closeEvent()
+    }}>Delete</Button>
+
     </Dialog>
   )
 
   /*
+
+  
 
   let input
 

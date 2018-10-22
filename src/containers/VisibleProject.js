@@ -3,7 +3,7 @@ import Project from '../components/Project'
 
 const mapStateToProps = (state, ownProps) => ({
   projectName: ownProps.match.params.projectName,
-  hours: state.projects.find(p => p.title === ownProps.match.params.projectName).hours
+  events: state.events.filter(p => p.title === ownProps.match.params.projectName) 
 })
 
 export default connect(
