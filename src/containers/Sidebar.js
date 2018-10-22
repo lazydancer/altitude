@@ -7,7 +7,7 @@ import { addProject, toggleProjectDialog } from '../actions'
 let input = ""
 
 const Sidebar = ({projectList, projectDialog, addProject, toggleProjectDialog}) => (
-  <Pane background="tint2">
+  <Pane background="tint2" position="fixed" width={200} height="100%">
     <TabNavigation width={200} padding={20} marginBottom={16}>
       <SidebarTab key='Today' is={Link} to={"/"} id='Today'>Today</SidebarTab>
       <SidebarTab key='Space' id='Space'></SidebarTab>

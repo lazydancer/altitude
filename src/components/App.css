@@ -1,7 +1,3 @@
-.App {
- /* height:800px; */
-}
-
 /*
   Hide Allday through CSS
 */
@@ -43,6 +39,27 @@ button.rbc-event-allday {
   color: rgb(66, 90, 112);
 }
 
-.sidebar {
-  height: 100%;
+/*
+  Removing the time in the calendar
+*/
+.rbc-event-label {
+  display: none;
 }
+
+/*
+  Shorten Calendar
+*/
+.rbc-timeslot-group {
+  min-height: 30px;
+}
+
+
+
+/*
+  Padding for a fixed sidebar
+*/
+
+main {
+  padding-left:200px;
+}
+

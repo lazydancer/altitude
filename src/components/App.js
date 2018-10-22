@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => (
   <div className="App">
-    <Pane display="flex" height={800}>
+    <Pane display="flex">
       <Sidebar /> 
       <Main />
     </Pane>
