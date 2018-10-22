@@ -39,6 +39,10 @@ button.rbc-event-allday {
   color: rgb(66, 90, 112);
 }
 
+.rbc-event-content {
+  padding: 6px;
+}
+
 /*
   Removing the time in the calendar
 */
