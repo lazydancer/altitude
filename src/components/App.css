@@ -58,6 +58,22 @@ button.rbc-event-allday {
 }
 
 
+/*
+  Fix Toolbar to display Date first
+*/
+.rbc-toolbar button {
+  border: none;
+  padding: 0;
+  display: flex;
+}
+
+.rbc-toolbar {
+  width: 300px;
+  justify-content: normal;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
 
 /*
   Padding for a fixed sidebar

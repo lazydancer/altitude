@@ -17,7 +17,7 @@ return (
     height={120}
     width={240}
     padding={20}>  
-    <Heading size={900}>{projectName}</Heading>
+    <Heading>{projectName}</Heading>
     <Paragraph>{hours} hours</Paragraph>
   </Pane>
 )}
