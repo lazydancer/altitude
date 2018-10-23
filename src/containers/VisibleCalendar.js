@@ -12,6 +12,7 @@ const mapDispatchToProps = dispatch => ({
   },
 
   moveEvent: ({ event, start, end }) => {
+    console.log(event.id, start, end)
     dispatch(moveEvent(event.id, start, end))
   },
 
