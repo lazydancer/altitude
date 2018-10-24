@@ -16,7 +16,7 @@ const Project = ({projectName, events, hours, daysChart}) => (
       >
       {daysChart.map((entry, index) => (
         <Cell cursor="pointer" 
-              fill={index === 0 ? '#265985' : '#3174ad' } 
+              fill={index === 0 ? '#781000' : '#00783E' } 
               key={`cell-${index}`}
         />
       ))}

@@ -74,6 +74,25 @@ button.rbc-event-allday {
   margin-bottom: 20px;
 }
 
+/*
+  Match Calendar Events Style
+*/
+
+.rbc-event {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  border-radius: 0px;
+  box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
+  font-weight: 400;
+  letter-spacing: -0.05px;
+  background-color: #00783E;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+.rbc-day-slot .rbc-event {
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
 
 /*
   Padding for a fixed sidebar
