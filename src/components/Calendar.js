@@ -48,15 +48,3 @@ const customToolbar = ({label, onNavigate}) => (
 )
 
 export default Calendar
-
-/*
-  <div className='rbc-toolbar'>
-        <span className="rbc-btn-group">
-          <button type="button" onClick={() => onNavigate('TODAY')}>today</button>
-          <button type="button" onClick={() => onNavigate('PREV')}>back</button>
-          <button type="button" onClick={() => onNavigate('NEXT')}>onwards</button>
-        </span>
-        <span className="rbc-toolbar-label">{label}</span>
-        <Heading>{label}</Heading>
-      </div>
-      */

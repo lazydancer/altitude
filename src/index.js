@@ -13,8 +13,6 @@ import mockEvents from './mockEvents'
 
 const persistedState = loadState();
 
-console.log(persistedState)
-
 const store = createStore(rootReducer,
   persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
