@@ -12,7 +12,7 @@ const Sidebar = ({emptySpots, projectList, projectDialog, addProject, toggleProj
       <SidebarTab key='Today' is={Link} to={"/"} id='Today'>
         Today
         <Pill display="inline-flex" margin={8} 
-              color={emptySpots === 0 ? "neutral" : "red"} 
+              color={emptySpots === 0 ? "green" : "red"} 
               isSolid={emptySpots !== 0}>{emptySpots}
         </Pill>
       </SidebarTab>
