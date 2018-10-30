@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, Dialog, Button, TabNavigation, SidebarTab, Pane, Pill } from 'evergreen-ui'
+import { TextInput, Dialog, TabNavigation, SidebarTab, Pane, Pill } from 'evergreen-ui'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addProject, toggleProjectDialog } from '../actions'
@@ -23,7 +23,6 @@ const Sidebar = ({emptySpots, projectList, projectDialog, addProject, toggleProj
           is={Link}
           to={"/project/" + tab}
           id={tab}
-          /*isSelected={index === 0}*/
         >
           {tab}
         </SidebarTab>
@@ -59,7 +58,7 @@ const emptySpots = (events) => { //This does not check over lapping
   let todayEvents = events.filter(
     x => {
       let clone = new Date(x.start)
-      return clone.setHours(0,0,0,0) == todayDate.setHours(0,0,0,0)
+      return clone.setHours(0,0,0,0) === todayDate.setHours(0,0,0,0)
     }
   )
   let hours = todayEvents.reduce((acc, x) =>

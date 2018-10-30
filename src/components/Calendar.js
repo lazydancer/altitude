@@ -5,6 +5,7 @@ import moment from 'moment'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import VisibleInfo from '../containers/VisibleInfo'
+import VisibleEventSelector from '../containers/VisibleEventSelector'
 import { Pane, Heading, IconButton } from 'evergreen-ui'
 
 
@@ -36,6 +37,7 @@ const Calendar = ({events, newEvent, moveEvent, selectEvent}) => (
     />
   </Pane>
   <VisibleInfo />
+  <VisibleEventSelector />
   </div>
 )
 
