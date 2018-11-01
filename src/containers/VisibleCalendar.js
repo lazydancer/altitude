@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addEvent, moveEvent, selectEvent } from '../actions'
+import { newEventModal, moveEvent, selectEvent } from '../actions'
 import Calendar from '../components/Calendar'
 
 const mapStateToProps = state => ({
@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  newEvent: event => {
-    dispatch(addEvent("new event", event.start, event.end))
+  newEventModal: event => {
+    dispatch(newEventModal(event.start, event.end))
   },
 
   moveEvent: ({ event, start, end }) => {

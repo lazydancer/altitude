@@ -1,8 +1,8 @@
 import { v4 } from 'node-uuid'
 
-export const addEvent = (title, start, end) => ({
+export const addEvent = (id, title, start, end) => ({
   type: 'ADD_EVENT',
-  id: v4(),
+  id,
   title,
   start,
   end
@@ -45,4 +45,14 @@ export const addProject = (title) => ({
 
 export const toggleProjectDialog = () => ({
   type: 'TOGGLE_PROJECT_DIALOG'
+})
+
+export const newEventModal = (start, end) => ({
+  type: 'SHOW_MODAL',
+  modalType: 'NEW_EVENT_SELECT',
+  modalProps: {
+    id: v4(),
+    start,
+    end
+  }
 })
