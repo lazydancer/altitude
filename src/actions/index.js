@@ -56,3 +56,11 @@ export const newEventModal = (start, end) => ({
     end
   }
 })
+
+export const selectEventModal = (id) => ({
+  type: 'SHOW_MODAL',
+  modalType: 'SELECT_EVENT',
+  modalProps: {
+    id: id
+  }
+})

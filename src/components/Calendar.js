@@ -4,7 +4,6 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import VisibleInfo from '../containers/VisibleInfo'
 import { Pane, Heading, IconButton } from 'evergreen-ui'
 
 
@@ -14,7 +13,7 @@ let localizer = BigCalendar.momentLocalizer(moment)
 
 let formats = {timeGutterFormat: 'HH'}
 
-const Calendar = ({events, newEventModal, moveEvent, selectEvent}) => (
+const Calendar = ({events, newEventModal, moveEvent, selectEvent, selectEventModal}) => (
   <div>
   <Pane padding={16} flex="1">
     <DragAndDropCalendar
@@ -29,13 +28,12 @@ const Calendar = ({events, newEventModal, moveEvent, selectEvent}) => (
       onEventResize={moveEvent}
       onSelectSlot={newEventModal}
       views={['day']}
-      onSelectEvent={selectEvent}
+      onSelectEvent={selectEventModal}
       defaultDate={new Date()}
       defaultView={BigCalendar.Views.DAY}
       components={{toolbar : customToolbar}}
     />
   </Pane>
-  <VisibleInfo />
   </div>
 )
 

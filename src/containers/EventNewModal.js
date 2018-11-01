@@ -4,14 +4,7 @@ import {  Table, Dialog } from 'evergreen-ui'
 import { addEvent } from '../actions'
 
 
-const NewEventSelectModal = ({ id, start, end, projectList, hideModal, addEvent }) => {
-
-  if(!id){
-    return (
-      <div className="NewEventSelectModal">
-      </div>
-    )
-  }
+const EventNewModal = ({ id, start, end, projectList, hideModal, addEvent }) => {
 
   return (
     <Dialog 
@@ -47,4 +40,4 @@ export default connect(
     hideModal: () => dispatch({type: 'HIDE_MODAL'}),
     addEvent: (id, title, start, end) => dispatch(addEvent(id, title, start, end))
   })
-)(NewEventSelectModal)
+)(EventNewModal)

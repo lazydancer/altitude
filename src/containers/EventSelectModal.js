@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { updateEvent, deleteEvent } from '../actions'
 import { Heading, Button, Select, Dialog } from 'evergreen-ui'
 
-const Info = ({ selectedEvent, projectList, updateEvent, closeEvent, deleteEvent}) => {
+
+const EventSelectModal = ({ selectedEvent, projectList, updateEvent, hideModal, deleteEvent}) => {
 
   if(!selectedEvent){
     return (
@@ -19,7 +21,7 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent, deleteEvent
       title="Edit"
       onCloseComplete={() => {
         updateEvent(selectedEvent.id, input, selectedEvent.start, selectedEvent.end)
-        closeEvent()
+        hideModal()
       }}
     >
     <Select
@@ -27,7 +29,7 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent, deleteEvent
     >
       <option value=""></option>
       {projectList.map(p => 
-        <option key={p} value={p}>{p}</option>
+        <option key={p.id} value={p.title}>{p.title}</option>
       )}
     </Select>
 
@@ -37,18 +39,22 @@ const Info = ({ selectedEvent, projectList, updateEvent, closeEvent, deleteEvent
 
     <Button intent="danger" appearance="primary" onClick={() => {
       deleteEvent(selectedEvent.id)
-      closeEvent()
+      hideModal()
     }}>Delete</Button>
 
     </Dialog>
   )
 }
 
-Info.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  start: PropTypes.string,
-  end: PropTypes.string
-}
-
-export default Info
+export default connect(
+  (state, ownProps) => ({
+    id: ownProps.id,
+    selectedEvent: state.events.find(x => x.id === ownProps.id),
+    projectList: state.projects
+  }),
+  (dispatch) => ({
+    hideModal: () => dispatch({type: 'HIDE_MODAL'}),
+    updateEvent: (id, title, start, end) => dispatch(updateEvent(id, title, start, end)),
+    deleteEvent: id => dispatch(deleteEvent(id))
+  })
+)(EventSelectModal)

@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import NewEventSelectModal from './NewEventSelectModal'
+import EventNewModal from './EventNewModal'
+import EventSelectModal from './EventSelectModal'
 
 const MODAL_COMPONENTS = {
-  'NEW_EVENT_SELECT': NewEventSelectModal,
+  'NEW_EVENT_SELECT': EventNewModal,
+  'SELECT_EVENT': EventSelectModal
 }
 
 const ModalRoot = ({ modalType, modalProps }) => {
