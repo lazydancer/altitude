@@ -1,8 +1,8 @@
 import React from 'react'
-import { TextInput, Dialog, TabNavigation, SidebarTab, Pane, Pill } from 'evergreen-ui'
+import { TabNavigation, SidebarTab, Pane, Pill } from 'evergreen-ui'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addProject, toggleProjectDialog, newProjectModal } from '../actions'
+import { addProject, newProjectModal } from '../actions'
 
 
 const Sidebar = ({emptySpots, projectList, projectDialog, addProject, newProjectModal}) => (
@@ -18,7 +18,7 @@ const Sidebar = ({emptySpots, projectList, projectDialog, addProject, newProject
       <SidebarTab key='Space' id='Space'></SidebarTab>
       {projectList.map((tab, index) => (
         <SidebarTab
-          key={tab}
+          key={index}
           is={Link}
           to={"/project/" + tab}
           id={tab}
@@ -39,7 +39,13 @@ const emptySpots = (events) => { //This does not check over lapping
 
   let todayDate = new Date()
 
-  let todayEvents = events.filter(
+  let eventsArray = []
+
+  for( let key in events){
+    eventsArray.push({...events[key], id: key})
+  }
+
+  let todayEvents = eventsArray.filter(
     x => {
       let clone = new Date(x.start)
       return clone.setHours(0,0,0,0) === todayDate.setHours(0,0,0,0)

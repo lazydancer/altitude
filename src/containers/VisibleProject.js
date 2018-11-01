@@ -14,7 +14,13 @@ const isSameDay = (dateOne, dateTwo) => {
 
 const mapStateToProps = (state, ownProps) => {
 
-  let events = state.events.filter(p => p.title === ownProps.match.params.projectName)
+  let eventsArray = []
+
+  for( let key in state.events){
+    eventsArray.push({...state.events[key], id: key})
+  }
+
+  let events = eventsArray.filter(p => p.title === ownProps.match.params.projectName)
 
   let eventsWDurations = events.map(event => ({
     ...event,

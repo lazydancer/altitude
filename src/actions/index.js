@@ -28,14 +28,6 @@ export const deleteEvent = id => ({
   id
 })
 
-export const selectEvent = (event) => ({
-  type: 'SELECT_EVENT',
-  event
-})
-
-export const unSelectEvent = () => ({
-  type: 'UNSELECT_EVENT'
-})
 
 export const addProject = (title) => ({
   type: 'ADD_PROJECT',

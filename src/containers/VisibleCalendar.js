@@ -1,10 +1,21 @@
 import { connect } from 'react-redux'
-import { newEventModal, moveEvent, selectEvent, selectEventModal } from '../actions'
+import { newEventModal, moveEvent, selectEventModal } from '../actions'
 import Calendar from '../components/Calendar'
 
-const mapStateToProps = state => ({
-  events: state.events
-})
+const mapStateToProps = state => {
+  // Event to Dic, interfacing with calendar
+  let eventsArray = []
+
+  for( let key in state.events){
+    eventsArray.push({...state.events[key], id: key})
+  }
+
+  console.log(state.events)
+  console.log(eventsArray)
+  return ({
+    events: eventsArray
+  })
+}
 
 const mapDispatchToProps = dispatch => ({
   newEventModal: event => {
@@ -13,10 +24,6 @@ const mapDispatchToProps = dispatch => ({
 
   moveEvent: ({ event, start, end }) => {
     dispatch(moveEvent(event.id, start, end))
-  },
-
-  selectEvent: (event) => {
-    dispatch(selectEvent(event))
   },
 
   selectEventModal: ({id}) => {

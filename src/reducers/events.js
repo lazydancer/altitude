@@ -1,40 +1,54 @@
-let initalState = [
-  {
-    id: 0,
+let initalState = {
+  0 : {
     title: '', //Having this event load vs an empty array  
     allDay: true,     //avoids the two click needed to do anything
     start: new Date(),
     end: new Date(),
-  }
-]
+  },
+}
 
 const events = (state = initalState, action ) => {
   switch (action.type) {
     case 'ADD_EVENT':
-      return [
-        ...state,
-        {
-          id: action.id,
-          title: action.title,
-          start: action.start,
-          end: action.end
-        }
-      ]
+      return ({ ...state,
+        [action.id]: event({}, action)
+      })
     case 'MOVE_EVENT':
-      return state.map(existingEvent => 
-        (existingEvent.id === action.id)
-          ? { ...existingEvent, start: action.start, end: action.end}
-          : existingEvent
-      )
+      return ({ ...state,
+        [action.id]: event(state[action.id], action)
+      })
     case 'UPDATE_EVENT':
-      return state.map(existingEvent => 
-        (existingEvent.id === action.id)
-          ? {id: action.id, title: action.title, start: action.start, end: action.end}
-          : existingEvent
-      )
+      return ({ ...state,
+        [action.id]: event(state[action.id], action)
+      })
     case 'DELETE_EVENT':
-      return state.filter(x => x.id !== action.id)
-      
+      return Object.keys(state).reduce((acc, cur) => 
+        cur !== action.id ? {...acc, [cur]:state[cur]} : acc
+      , {})
+    default:
+      return state
+  }
+}
+
+const event = (state, action) => {
+  switch (action.type) {
+    case 'ADD_EVENT':
+      return ({
+        title: action.title,
+        start: action.start,
+        end: action.end
+      })
+    case 'MOVE_EVENT':
+      return ({ ...state, 
+        start: action.start,
+        end: action.end
+      })
+    case 'UPDATE_EVENT':
+      return ({
+        title: action.title, 
+        start: action.start,
+        end: action.end
+      })
     default:
       return state
   }

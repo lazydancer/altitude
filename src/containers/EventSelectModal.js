@@ -4,7 +4,7 @@ import { updateEvent, deleteEvent } from '../actions'
 import { Heading, Button, Select, Dialog } from 'evergreen-ui'
 
 
-const EventSelectModal = ({ selectedEvent, projectList, updateEvent, hideModal, deleteEvent}) => {
+const EventSelectModal = ({ id, selectedEvent, projectList, updateEvent, hideModal, deleteEvent}) => {
 
   if(!selectedEvent){
     return (
@@ -20,7 +20,7 @@ const EventSelectModal = ({ selectedEvent, projectList, updateEvent, hideModal, 
       isShown={selectedEvent !== null}
       title="Edit"
       onCloseComplete={() => {
-        updateEvent(selectedEvent.id, input, selectedEvent.start, selectedEvent.end)
+        updateEvent(id, input, selectedEvent.start, selectedEvent.end)
         hideModal()
       }}
     >
@@ -33,12 +33,12 @@ const EventSelectModal = ({ selectedEvent, projectList, updateEvent, hideModal, 
       )}
     </Select>
 
-    <p>{selectedEvent.id}</p>
+    <p>{id}</p>
 
     <Heading>Actions</Heading>
 
     <Button intent="danger" appearance="primary" onClick={() => {
-      deleteEvent(selectedEvent.id)
+      deleteEvent(id)
       hideModal()
     }}>Delete</Button>
 
@@ -49,7 +49,7 @@ const EventSelectModal = ({ selectedEvent, projectList, updateEvent, hideModal, 
 export default connect(
   (state, ownProps) => ({
     id: ownProps.id,
-    selectedEvent: state.events.find(x => x.id === ownProps.id),
+    selectedEvent: state.events[ownProps.id],
     projectList: state.projects
   }),
   (dispatch) => ({
