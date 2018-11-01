@@ -30,12 +30,20 @@ const EventNewModal = ({ id, start, end, projectList, hideModal, addEvent }) => 
 }
 
 export default connect(
-  (state, ownProps) => ({
-    id: ownProps.id,
-    start: ownProps.start,
-    end: ownProps.end,
-    projectList: state.projects
-  }),
+  (state, ownProps) => {
+
+    let projectsArray = []
+    for( let key in state.projects ){
+      projectsArray.push({...state.projects[key], id: key})
+    }
+
+    return ({
+      id: ownProps.id,
+      start: ownProps.start,
+      end: ownProps.end,
+      projectList: projectsArray
+    })
+  },
   (dispatch) => ({
     hideModal: () => dispatch({type: 'HIDE_MODAL'}),
     addEvent: (id, title, start, end) => dispatch(addEvent(id, title, start, end))

@@ -1,19 +1,16 @@
 let mockEvents = { 
-  projects: [
+  projects: 
   {
-    id: 'asdf',
-    title: 'Sleep',
+    'asdf': {
+      title: 'Sleep'
+    },
+    'bsdf': {
+      title: 'Eat'
+    },
+    'csdf': {
+      title: 'Work'
+    }
   },
-  {
-    id: 'asdd',
-    title: 'Eat',
-  },
-   {
-    id: 'afsdf',
-    title: 'Work',
-  },
-
-  ],
 
   events: 
   {
@@ -31,22 +28,3 @@ let mockEvents = {
 }
 
 export default mockEvents
-
-/*
-  [
-  {
-    id: 'asdfasdfasdf',
-    title: 'Event',
-    start: new Date('2018-11-01T14:00:00.000Z'),
-    end: new Date('2018-11-01T16:00:00.000Z'),
-  },
-   {
-    id: 'asdfasdfadf',
-    title: 'Event 2',
-    start: new Date('2018-11-01T17:00:00.000Z'),
-    end: new Date('2018-11-01T20:00:00.000Z'),
-  },
-
-
-]
-*/

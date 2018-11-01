@@ -12,26 +12,16 @@ const events = (state = initalState, action ) => {
     case 'ADD_EVENT':
     case 'UPDATE_EVENT':
       return ({ ...state,
-        [action.id]: event(state[action.id], action)
+        [action.id]: {
+          title: action.title, 
+          start: action.start,
+          end: action.end
+        }
       })
     case 'DELETE_EVENT':
       return Object.keys(state).reduce((acc, cur) => 
         cur !== action.id ? {...acc, [cur]:state[cur]} : acc
       , {})
-    default:
-      return state
-  }
-}
-
-const event = (state, action) => {
-  switch (action.type) {
-    case 'ADD_EVENT':
-    case 'UPDATE_EVENT':
-      return ({
-        title: action.title, 
-        start: action.start,
-        end: action.end
-      })
     default:
       return state
   }

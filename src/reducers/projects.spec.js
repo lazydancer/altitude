@@ -4,7 +4,7 @@ describe('projects reducer', () => {
   it('should handle inital state', () => {
     expect(
       projects(undefined, {})
-      ).toEqual([])
+      ).toEqual({})
   })
 
   it('should handle ADD_PROJECT', () => {
@@ -14,9 +14,10 @@ describe('projects reducer', () => {
         id: 'Hello',
         title: 'Reading' 
     })
-    ).toEqual([{ 
-      id: 'Hello',
-      title: 'Reading',
-    }])
+    ).toEqual({ 
+      'Hello': {
+        title: 'Reading',
+      }
+    })
   })
 })

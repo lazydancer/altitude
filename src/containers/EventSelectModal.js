@@ -47,11 +47,18 @@ const EventSelectModal = ({ id, selectedEvent, projectList, updateEvent, hideMod
 }
 
 export default connect(
-  (state, ownProps) => ({
+  (state, ownProps) => {
+    let projectsArray = []
+    for( let key in state.projects ){
+      projectsArray.push({...state.projects[key], id: key})
+    }
+
+    return ({
     id: ownProps.id,
     selectedEvent: state.events[ownProps.id],
-    projectList: state.projects
-  }),
+    projectList: projectsArray
+    })
+  },
   (dispatch) => ({
     hideModal: () => dispatch({type: 'HIDE_MODAL'}),
     updateEvent: (id, title, start, end) => dispatch(updateEvent(id, title, start, end)),

@@ -40,7 +40,6 @@ const emptySpots = (events) => { //This does not check over lapping
   let todayDate = new Date()
 
   let eventsArray = []
-
   for( let key in events){
     eventsArray.push({...events[key], id: key})
   }
@@ -58,11 +57,18 @@ const emptySpots = (events) => { //This does not check over lapping
 
 }
 
-const mapStateToProps = (state) => ({
-  projectList: state.projects.map(a=>a.title),
-  projectDialog: state.projectDialog,
-  emptySpots: emptySpots(state.events)
-})
+const mapStateToProps = (state) => {
+
+  let projectsArray = []
+  for( let key in state.projects ){
+    projectsArray.push(state.projects[key].title)
+  }
+
+  return ({
+    projectList: projectsArray,
+    emptySpots: emptySpots(state.events)
+  })
+}
 
 const mapDispatchToProps = (dispatch) => ({
   addProject: (project) => dispatch(addProject(project)),
