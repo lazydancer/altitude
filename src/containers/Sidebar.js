@@ -2,11 +2,10 @@ import React from 'react'
 import { TextInput, Dialog, TabNavigation, SidebarTab, Pane, Pill } from 'evergreen-ui'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addProject, toggleProjectDialog } from '../actions'
+import { addProject, toggleProjectDialog, newProjectModal } from '../actions'
 
-let input = ""
 
-const Sidebar = ({emptySpots, projectList, projectDialog, addProject, toggleProjectDialog}) => (
+const Sidebar = ({emptySpots, projectList, projectDialog, addProject, newProjectModal}) => (
   <Pane background="tint2" position="fixed" width={200} height="100%">
     <TabNavigation width={200} padding={20} marginBottom={16}>
       <SidebarTab key='Today' is={Link} to={"/"} id='Today'>
@@ -27,24 +26,9 @@ const Sidebar = ({emptySpots, projectList, projectDialog, addProject, toggleProj
           {tab}
         </SidebarTab>
       ))}
-      <SidebarTab onClick={()=>toggleProjectDialog()}>+ Add Project</SidebarTab>
+      <SidebarTab onClick={()=>newProjectModal()}>+ Add Project</SidebarTab>
     </TabNavigation>
-  
-    <Dialog
-      isShown={projectDialog}
-      title="Add Project"
-      onCloseComplete={() => {
-        if (input !== "") addProject(input)
-        toggleProjectDialog()
-      }}
-    >
-      <TextInput
-        name="text-input-name"
-        placeholder="Text input placeholder..."
-        onChange={e => { input = e.target.value }}
-      />  
 
-    </Dialog> 
 
   </Pane>
 
@@ -76,7 +60,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addProject: (project) => dispatch(addProject(project)),
-  toggleProjectDialog: () => dispatch(toggleProjectDialog())
+  newProjectModal: () => dispatch(newProjectModal())
 })
 
 export default connect(

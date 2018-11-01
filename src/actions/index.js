@@ -64,3 +64,10 @@ export const selectEventModal = (id) => ({
     id: id
   }
 })
+
+export const newProjectModal = () => ({
+  type: 'SHOW_MODAL',
+  modalType: 'NEW_PROJECT',
+  modalProps: {
+  }
+})
