@@ -63,29 +63,6 @@ describe('events reducer', () => {
     })
   })
 
-   it('should handle MOVE_EVENT', () => {
-    expect(
-      events({ 
-        "usally generated string by uuid": {
-          title: "A new event", 
-          start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"
-        }
-        }, {
-          type:'MOVE_EVENT',
-          id: "usally generated string by uuid",
-          start: "2015-04-12T16:30:00.000Z",
-          end: "2015-04-12T18:30:00.000Z",
-        })
-    ).toEqual({
-      "usally generated string by uuid": { 
-        title: "A new event", 
-        start: "2015-04-12T16:30:00.000Z", 
-        end: "2015-04-12T18:30:00.000Z" 
-      }
-    })
-  })
-
    it('should handle UPDATE_EVENT', () => {
     expect(
       events({ 

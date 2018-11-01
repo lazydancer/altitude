@@ -16,13 +16,6 @@ export const updateEvent = (id, title, start, end) => ({ //move and resize
   end
 })
 
-export const moveEvent = (id, start, end) => ({ //move and resize
-  type: 'MOVE_EVENT',
-  id,
-  start,
-  end
-})
-
 export const deleteEvent = id => ({
   type: 'DELETE_EVENT',
   id
@@ -35,9 +28,6 @@ export const addProject = (title) => ({
   title
 })
 
-export const toggleProjectDialog = () => ({
-  type: 'TOGGLE_PROJECT_DIALOG'
-})
 
 export const newEventModal = (start, end) => ({
   type: 'SHOW_MODAL',

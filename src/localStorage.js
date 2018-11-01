@@ -5,15 +5,14 @@ export const loadState = () => {
       return undefined;
     }
     let state =  JSON.parse(serializedState);
-
-    state.events = state.events.map(x => {
-      return (
-      {id: x.id,
-       title: x.title,
-       start: new Date(x.start),
-       end: new Date(x.end)
-      }) 
-    })
+    
+    state.events = Object.keys(state.events).reduce((acc, cur) =>{
+     return ({ ...acc , [cur]: {...state.events[cur],
+                       start: new Date(state.events[cur].start),
+                       end: new Date(state.events[cur].end)}
+     }) 
+    }, {})
+    
     return state
   } catch (err) {
     return undefined;

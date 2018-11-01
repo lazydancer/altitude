@@ -10,13 +10,6 @@ let initalState = {
 const events = (state = initalState, action ) => {
   switch (action.type) {
     case 'ADD_EVENT':
-      return ({ ...state,
-        [action.id]: event({}, action)
-      })
-    case 'MOVE_EVENT':
-      return ({ ...state,
-        [action.id]: event(state[action.id], action)
-      })
     case 'UPDATE_EVENT':
       return ({ ...state,
         [action.id]: event(state[action.id], action)
@@ -33,16 +26,6 @@ const events = (state = initalState, action ) => {
 const event = (state, action) => {
   switch (action.type) {
     case 'ADD_EVENT':
-      return ({
-        title: action.title,
-        start: action.start,
-        end: action.end
-      })
-    case 'MOVE_EVENT':
-      return ({ ...state, 
-        start: action.start,
-        end: action.end
-      })
     case 'UPDATE_EVENT':
       return ({
         title: action.title, 
