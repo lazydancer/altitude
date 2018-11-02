@@ -7,7 +7,12 @@ const mapStateToProps = state => {
   let eventsArray = []
 
   for( let key in state.events){
-    eventsArray.push({...state.events[key], id: key})
+    let projectParent = state.projects[state.events[key].project]
+    eventsArray.push(
+      {...state.events[key], 
+        id: key,
+        title: projectParent.title,
+        color: projectParent.color})
   }
 
   return ({
@@ -21,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
   },
 
   moveEvent: ({ event, start, end }) => {
-    dispatch(updateEvent(event.id, event.title, start, end))
+    dispatch(updateEvent(event.id, event.project, start, end))
   },
 
   selectEventModal: ({id}) => {

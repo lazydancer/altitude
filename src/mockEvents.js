@@ -2,27 +2,30 @@ let mockEvents = {
   projects: 
   {
     'asdf': {
-      title: 'Sleep'
+      title: 'Sleep',
+      color: '#425A70'
     },
     'bsdf': {
-      title: 'Eat'
+      title: 'Eat',
+      color: '#47B881'
     },
     'csdf': {
-      title: 'Work'
+      title: 'Work',
+      color: '#EC4C47'
     }
   },
 
   events: 
   {
     'asdfasdfasdf' : {
-      title: 'Event',
-      start: new Date('2018-11-01T14:00:00.000Z'),
-      end: new Date('2018-11-01T16:00:00.000Z'),
+      project: 'asdf',
+      start: new Date('2018-11-02T14:00:00.000Z'),
+      end: new Date('2018-11-02T16:00:00.000Z'),
     },
     'bsdfasdfadf': {
-      title: 'Event 2',
-      start: new Date('2018-11-01T17:00:00.000Z'),
-      end: new Date('2018-11-01T20:00:00.000Z'),
+      project: 'bsdf',
+      start: new Date('2018-11-02T17:00:00.000Z'),
+      end: new Date('2018-11-02T20:00:00.000Z'),
     },
   }
 }

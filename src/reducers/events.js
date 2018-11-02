@@ -13,7 +13,7 @@ const events = (state = initalState, action ) => {
     case 'UPDATE_EVENT':
       return ({ ...state,
         [action.id]: {
-          title: action.title, 
+          project: action.project,
           start: action.start,
           end: action.end
         }

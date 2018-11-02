@@ -14,14 +14,14 @@ describe('events reducer', () => {
       events([], {
         type: 'ADD_EVENT',
         id: "usally generated string by uuid",
-        title: "A new event",
         start: "2015-04-12T14:30:00.000Z",
         end: "2015-04-12T16:30:00.000Z",
+        project: "projectID"
       })
     ).toEqual({ 
       "usally generated string by uuid" : 
         { 
-          title: "A new event", 
+          project: "projectID", 
           start: "2015-04-12T14:30:00.000Z", 
           end: "2015-04-12T16:30:00.000Z"
         }
@@ -35,7 +35,7 @@ describe('events reducer', () => {
       events({ 
       "usally generated string by uuid" : 
         { 
-          title: "A new event", 
+          project: "projectID",
           start: "2015-04-12T14:30:00.000Z", 
           end: "2015-04-12T16:30:00.000Z"
         }
@@ -43,22 +43,22 @@ describe('events reducer', () => {
       {
         type: 'ADD_EVENT',
         id: "2usally generated string by uuid",
-        title: "A second event",
+        project: "projectID",
         start: "2015-04-12T16:30:00.000Z",
         end: "2015-04-12T18:30:00.000Z",
       })
     ).toEqual({ 
       "usally generated string by uuid" : 
         { 
-          title: "A new event", 
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"
+          end: "2015-04-12T16:30:00.000Z",
+          project: "projectID",
         },
       "2usally generated string by uuid":
       {
-        title: "A second event",
         start: "2015-04-12T16:30:00.000Z",
         end: "2015-04-12T18:30:00.000Z",
+        project: "projectID",
       }
     })
   })
@@ -66,22 +66,22 @@ describe('events reducer', () => {
    it('should handle UPDATE_EVENT', () => {
     expect(
       events({ 
-        "usally generated string by uuid": {
-          title: "A new event", 
+        "usally generated string by uuid": { 
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"
+          end: "2015-04-12T16:30:00.000Z",
+          project: "projectID",
         }}, {
           type:'UPDATE_EVENT',
           id: "usally generated string by uuid",
-          title: "A new title",
           start: "2015-04-12T14:30:00.000Z",
           end: "2015-04-12T16:30:00.000Z",
+          project: "projectID",
         })
     ).toEqual({ 
         "usally generated string by uuid": {
-          title: "A new title", 
-          start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"
+           start: "2015-04-12T14:30:00.000Z", 
+          end: "2015-04-12T16:30:00.000Z",
+          project: "projectID",
         }})
   })
 
@@ -90,9 +90,9 @@ describe('events reducer', () => {
     expect(
       events({
           "usally generated string by uuid": { 
-          title: "A new event", 
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"}
+          end: "2015-04-12T16:30:00.000Z",
+          project: "projectID",}
         }, {
           type:'DELETE_EVENT',
           id: "usally generated string by uuid",
@@ -104,22 +104,22 @@ describe('events reducer', () => {
     expect(
       events({
           "usally generated string by uuid": { 
-          title: "A new event", 
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"},
+          end: "2015-04-12T16:30:00.000Z",
+        project: "projectID",},
           "2usally generated string by uuid": { 
-          title: "A new event", 
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"}
+          end: "2015-04-12T16:30:00.000Z",
+        project: "projectID",}
         }, {
           type:'DELETE_EVENT',
           id: "usally generated string by uuid",
         })
     ).toEqual({
-        "2usally generated string by uuid": { 
-          title: "A new event", 
+        "2usally generated string by uuid": {  
           start: "2015-04-12T14:30:00.000Z", 
-          end: "2015-04-12T16:30:00.000Z"}
+          end: "2015-04-12T16:30:00.000Z",
+        project: "projectID",}
         })
   })
 })

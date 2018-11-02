@@ -16,7 +16,7 @@ const EventNewModal = ({ id, start, end, projectList, hideModal, addEvent }) => 
             {projectList.map(project => (
               <Table.Row key={project.id} isSelectable 
                          onSelect={() => {
-                          addEvent(id, project.title, start, end)
+                          addEvent(id, project.id, start, end)
                           hideModal()}}
               >
                 <Table.TextCell>{project.title}</Table.TextCell>
@@ -46,6 +46,6 @@ export default connect(
   },
   (dispatch) => ({
     hideModal: () => dispatch({type: 'HIDE_MODAL'}),
-    addEvent: (id, title, start, end) => dispatch(addEvent(id, title, start, end))
+    addEvent: (id, project, start, end) => dispatch(addEvent(id, project, start, end))
   })
 )(EventNewModal)

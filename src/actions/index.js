@@ -1,17 +1,17 @@
 import { v4 } from 'node-uuid'
 
-export const addEvent = (id, title, start, end) => ({
+export const addEvent = (id, project, start, end) => ({
   type: 'ADD_EVENT',
   id,
-  title,
+  project,
   start,
   end
 })
 
-export const updateEvent = (id, title, start, end) => ({ //move and resize
+export const updateEvent = (id, project, start, end) => ({ //move and resize
   type: 'UPDATE_EVENT',
   id,
-  title,
+  project,
   start,
   end
 })

@@ -29,7 +29,7 @@ const EventSelectModal = ({ id, selectedEvent, projectList, updateEvent, hideMod
     >
       <option value=""></option>
       {projectList.map(p => 
-        <option key={p.id} value={p.title}>{p.title}</option>
+        <option key={p.id} value={p.id}>{p.title}</option>
       )}
     </Select>
 
@@ -61,7 +61,7 @@ export default connect(
   },
   (dispatch) => ({
     hideModal: () => dispatch({type: 'HIDE_MODAL'}),
-    updateEvent: (id, title, start, end) => dispatch(updateEvent(id, title, start, end)),
+    updateEvent: (id, project, start, end) => dispatch(updateEvent(id, project, start, end)),
     deleteEvent: id => dispatch(deleteEvent(id))
   })
 )(EventSelectModal)
