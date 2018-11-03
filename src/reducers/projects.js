@@ -7,6 +7,12 @@ const projects = (state = {}, action ) => {
           title: action.title,
         }
       }
+    case 'UPDATE_COLOR':
+      return {...state,
+        [action.id]: {...state[action.id],  
+          color: action.color
+        }
+      }
     default:
       return state
   }

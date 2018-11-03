@@ -17,7 +17,7 @@ const Sidebar = ({projectList, newProjectModal}) => (
         <SidebarTab
           key={index}
           is={Link}
-          to={"/project/" + tab.title}
+          to={"/project/" + tab.id}
           id={tab.id}
           marginTop={tab.subProjects ? 20 : 0}
         >
@@ -57,7 +57,16 @@ const projectListToDisplay = (projects) => {
   let singleKeys = projectKeys.filter( x => collections.indexOf(x) < 0 )
   let resultKeys = singleKeys.concat(collections)
 
-  return resultKeys.map(key => projects[key])
+  let result = resultKeys.map(key => {
+    let a = projects[key]
+    a.id = key
+
+    return a
+  })
+
+  console.log(result)
+
+  return result
 
 }
 

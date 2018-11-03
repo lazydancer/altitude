@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import Project from '../components/Project'
-
+import { Colors } from '../constants'
+import { updateColor } from '../actions'
 
 
 const isSameDay = (dateOne, dateTwo) => {
@@ -14,18 +15,20 @@ const isSameDay = (dateOne, dateTwo) => {
 
 const mapStateToProps = (state, ownProps) => {
 
+  let propKey = ownProps.match.params.projectKey
+
   let eventsArray = []
 
   for( let key in state.events){
-    eventsArray.push({...state.events[key], id: key})
+    if( state.events[key].project === propKey )
+      eventsArray.push({...state.events[key], id: key})
   }
 
-  let events = eventsArray.filter(p => p.title === ownProps.match.params.projectName)
-
-  let eventsWDurations = events.map(event => ({
+  let eventsWDurations = eventsArray.map(event => ({
     ...event,
     duration: Math.round((event.end - event.start)/3600000)
   }))
+
   
   let daysChart = []
 
@@ -47,15 +50,27 @@ const mapStateToProps = (state, ownProps) => {
   daysChart = daysChart.reverse()
   let hours = eventsWDurations.reduce((acc, x) => acc + x.duration, 0)
 
+  let projectList = []
+
+  for (let key in state.projects){
+    if (key !== propKey){
+      projectList.push({...state.projects[key], id: key})
+    }
+  }
+
   return ({
-    projectName: ownProps.match.params.projectName,
-    events: events, 
+    project: state.projects[propKey], 
     totalHours: hours,
-    daysChart: daysChart
+    daysChart: daysChart,
+    projectList: projectList
   })
 }
 
+const mapDispatchToProps = dispatch => ({
+  updateColor: (id, color) => dispatch(updateColor(id, color))
+})
+
 export default connect(
   mapStateToProps, 
-  null
+  mapDispatchToProps,
 )(Project)

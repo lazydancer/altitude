@@ -16,7 +16,6 @@ let mockEvents = {
     'dsdf': {
       title: 'Working Projects',
       color: '#EC4C47',
-      subProjects: ['csdf', 'asdf']
     },
   },
 

@@ -28,6 +28,12 @@ export const addProject = (title) => ({
   title
 })
 
+export const updateColor = (project, color) => ({
+  type: 'UPDATE_COLOR',
+  id: project,
+  color: color
+})
+
 
 export const newEventModal = (start, end) => ({
   type: 'SHOW_MODAL',

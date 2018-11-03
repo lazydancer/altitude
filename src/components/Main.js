@@ -8,7 +8,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={VisibleCalendar}/>
-      <Route path='/project/:projectName' component={VisibleProject} />
+      <Route path='/project/:projectKey' component={VisibleProject} />
     </Switch>
   </main>
 )
