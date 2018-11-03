@@ -36,7 +36,7 @@ const mapStateToProps = (state, ownProps) => {
    
     let hours = eventsOnDay.reduce((acc, x) => 
       acc + x.duration
-    , 0.1)
+    , 0)
 
     daysChart.push({
       date: date,
@@ -50,7 +50,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     projectName: ownProps.match.params.projectName,
     events: events, 
-    hours: hours,
+    totalHours: hours,
     daysChart: daysChart
   })
 }

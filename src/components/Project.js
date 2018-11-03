@@ -3,14 +3,14 @@ import { Heading, Paragraph, Pane, Strong } from 'evergreen-ui'
 import { BarChart, Bar, Cell } from 'recharts'
 
 
-const Project = ({projectName, events, hours, daysChart}) => (
+const Project = ({projectName, events, totalHours, daysChart}) => (
   <Pane  
     height={120}
     width={240}
     padding={20}>  
     <Heading size={900}>{projectName}</Heading>
-    <Paragraph><Strong>{hours}</Strong> hours</Paragraph>
-    <BarChart width={400} height={80} data={daysChart}>
+    <Paragraph marginBottom={20}><Strong>{totalHours}</Strong> hours</Paragraph>
+    <BarChart  width={300} height={80} data={daysChart}>
       <Bar dataKey='hours' 
            onClick={() => alert("Hi!")}
       >
@@ -23,6 +23,7 @@ const Project = ({projectName, events, hours, daysChart}) => (
       </Bar>
     </BarChart>
   </Pane>
+
 )
 
 export default Project

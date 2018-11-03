@@ -7,13 +7,15 @@ import { addProject } from '../actions'
 const ProjectNewModal = ({ addProject, hideModal }) => {
 
   let input = ""
+  let selectInput = ""
 
   return (
     <Dialog
       isShown={true}
       title="Add Project"
       onCloseComplete={() => {
-        if (input !== "") addProject(input)
+        console.log(input, selectInput)
+        if (input !== "") addProject(input, selectInput)
         hideModal()
       }}
     >
@@ -22,14 +24,13 @@ const ProjectNewModal = ({ addProject, hideModal }) => {
         placeholder="Text input placeholder..."
         onChange={e => { input = e.target.value }}
       />  
-
     </Dialog> 
 
   )
 }
 
 export default connect(
-  (state, ownProps) => ({
+  (state, ownProps) =>({ 
   }),
   (dispatch) => ({
     addProject: (project) => dispatch(addProject(project)),

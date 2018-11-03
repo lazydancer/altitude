@@ -4,7 +4,7 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Pane, Heading, IconButton, Pill } from 'evergreen-ui'
+import { Pane, Heading, IconButton } from 'evergreen-ui'
 
 
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
@@ -49,7 +49,6 @@ const customToolbar = ({label, onNavigate}) => (
 )
 
 const eventStyleGetter = (event, start, end, isSelected) => {
-  console.log(event)
   return { style: { backgroundColor: event.color }}
 }
 

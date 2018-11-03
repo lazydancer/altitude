@@ -3,7 +3,7 @@ let mockEvents = {
   {
     'asdf': {
       title: 'Sleep',
-      color: '#425A70'
+      color: '#425A70',
     },
     'bsdf': {
       title: 'Eat',
@@ -12,7 +12,12 @@ let mockEvents = {
     'csdf': {
       title: 'Work',
       color: '#EC4C47'
-    }
+    },
+    'dsdf': {
+      title: 'Working Projects',
+      color: '#EC4C47',
+      subProjects: ['csdf', 'asdf']
+    },
   },
 
   events: 

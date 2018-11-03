@@ -11,11 +11,11 @@ import { loadState, saveState } from './localStorage'
 
 import mockEvents from './mockEvents'
 
-//const persistedState = loadState();
+const persistedState = loadState();
 
 const store = createStore(rootReducer,
-//  persistedState,
-  mockEvents,
+  persistedState,
+//  mockEvents,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   )
 
