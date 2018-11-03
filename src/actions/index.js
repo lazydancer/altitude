@@ -34,6 +34,18 @@ export const updateColor = (project, color) => ({
   color: color
 })
 
+export const updateProjectName = (project, name) => ({
+  type: 'UPDATE_NAME',
+  id: project,
+  title: name
+})
+
+export const deleteProject = (project) => ({
+  type: 'DELETE_PROJECT',
+  id: project
+})
+
+
 
 export const newEventModal = (start, end) => ({
   type: 'SHOW_MODAL',

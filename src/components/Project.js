@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import { Heading, Paragraph, Pane, Strong, SelectField, Button, SelectMenu } from 'evergreen-ui'
+import { Heading, Paragraph, Pane, Strong, SelectField, Button, SelectMenu, TextInputField } from 'evergreen-ui'
 import { BarChart, Bar, Cell } from 'recharts'
 import { Colors } from '../constants'
 
 
-const Project = ({project, totalHours, daysChart, projectList, updateColor}) => (
+const Project = ({project, totalHours, updateProjectName, deleteProject, daysChart, projectList, updateColor}) => (
   <Pane padding={20}>  
     
     <Heading size={900} color={project.color}>
@@ -27,8 +27,15 @@ const Project = ({project, totalHours, daysChart, projectList, updateColor}) => 
       </Bar>
     </BarChart>
 
-    <SelectField
+    <TextInputField
+      label="Change Project Name"
+      placeholder={project.title}
       marginTop={20}
+      onChange={e => updateProjectName(project.id, e.target.value)}
+    />
+
+    <SelectField
+      
       label="Color"
       onChange={e => 
         updateColor(project.id, e.target.value)
@@ -45,6 +52,18 @@ const Project = ({project, totalHours, daysChart, projectList, updateColor}) => 
        )}
     
     </SelectField>
+
+    <Button marginRight={12} 
+            iconBefore="trash" 
+            intent="danger"
+            onClick = {()=>{
+              window.location.assign("/") //Sort of a brutal way to get back home, need a router option
+              deleteProject(project.id)
+              }
+            }
+    >
+      Delete and remove events
+    </Button>
 
   </Pane>
 )

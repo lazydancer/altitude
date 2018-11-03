@@ -3,18 +3,21 @@ import { newEventModal, updateEvent, selectEventModal } from '../actions'
 import Calendar from '../components/Calendar'
 
 const mapStateToProps = state => {
-  // Event to Dic, interfacing with calendar
+
   let eventsArray = []
 
   for( let key in state.events){
     let projectParent = state.projects[state.events[key].project]
-    eventsArray.push(
-      {...state.events[key], 
-        id: key,
-        title: projectParent.title,
-        color: projectParent.color})
+    if (projectParent){ 
+      eventsArray.push(
+        {...state.events[key], 
+          id: key,
+          title: projectParent.title,
+          color: projectParent.color})
+    } else {
+      eventsArray.push({...state.events[key], id: key })
+    }
   }
-
   return ({
     events: eventsArray
   })

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Project from '../components/Project'
 import { Colors } from '../constants'
-import { updateColor } from '../actions'
+import { updateColor, updateProjectName, deleteProject } from '../actions'
 
 
 const isSameDay = (dateOne, dateTwo) => {
@@ -67,7 +67,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateColor: (id, color) => dispatch(updateColor(id, color))
+  updateColor: (id, color) => dispatch(updateColor(id, color)),
+  updateProjectName: (id, name) => dispatch(updateProjectName(id, name)),
+  deleteProject: (id) => dispatch(deleteProject(id)),
 })
 
 export default connect(

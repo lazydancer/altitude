@@ -13,12 +13,13 @@ const EventSelectModal = ({ id, selectedEvent, projectList, updateEvent, hideMod
     )
   }
 
-  let input = selectedEvent.title
+  let input = selectedEvent.project
 
   return (
     <Dialog
       isShown={selectedEvent !== null}
       title="Edit"
+      
       onCloseComplete={() => {
         updateEvent(id, input, selectedEvent.start, selectedEvent.end)
         hideModal()
@@ -26,8 +27,8 @@ const EventSelectModal = ({ id, selectedEvent, projectList, updateEvent, hideMod
     >
     <Select
       onChange={e => { input = e.target.value}}
+      defaultValue={input}
     >
-      <option value=""></option>
       {projectList.map(p => 
         <option key={p.id} value={p.id}>{p.title}</option>
       )}
