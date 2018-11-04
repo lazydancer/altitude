@@ -13,7 +13,7 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 600, height: 800, title:"altitude"});
+    mainWindow = new BrowserWindow({width: 610, height: 810});
 
     // and load the index.html of the app.
     //mainWindow.loadURL('http://localhost:3000');

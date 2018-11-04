@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import { Heading, Paragraph, Pane, Strong, SelectField, Button, SelectMenu, TextInputField } from 'evergreen-ui'
+import React from 'react'
+import { Heading, Paragraph, Pane, Strong, SelectField, Button, TextInputField } from 'evergreen-ui'
 import { BarChart, Bar, Cell } from 'recharts'
+import { Link } from 'react-router-dom'
 import { Colors } from '../constants'
 
 
@@ -53,17 +54,17 @@ const Project = ({project, totalHours, updateProjectName, deleteProject, daysCha
     
     </SelectField>
 
-    <Button marginRight={12} 
-            iconBefore="trash" 
-            intent="danger"
-            onClick = {()=>{
-              window.location.assign("/") //Sort of a brutal way to get back home, need a router option
-              deleteProject(project.id)
-              }
-            }
+    <Button 
+      is={Link}
+      to={"/"}
+      marginRight={12} 
+      iconBefore="trash" 
+      intent="danger"
+      onClick = {()=>deleteProject(project.id)}
     >
       Delete and remove events
     </Button>
+
 
   </Pane>
 )

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import Project from '../components/Project'
-import { Colors } from '../constants'
 import { updateColor, updateProjectName, deleteProject } from '../actions'
 
 

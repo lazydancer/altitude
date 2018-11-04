@@ -9,7 +9,7 @@ import rootReducer from './reducers'
 import './index.css'
 import { loadState, saveState } from './localStorage'
 
-import mockEvents from './mockEvents'
+//import mockEvents from './mockEvents'
 
 const persistedState = loadState();
 
