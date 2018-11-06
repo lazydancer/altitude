@@ -122,4 +122,43 @@ describe('events reducer', () => {
         project: "projectID",}
         })
   })
+  /* This isn't tested for now
+  it('should handle COPY_DAY', () => {
+    expect(
+      events({
+          "usally generated string by uuid": { 
+          start: "2015-04-12T14:30:00.000Z", 
+          end: "2015-04-12T16:30:00.000Z",
+        project: "projectID",},
+          "2usally generated string by uuid": { 
+          start: "2015-04-12T14:30:00.000Z", 
+          end: "2015-04-12T16:30:00.000Z",
+        project: "projectID",}
+        }, {
+          type:'COPY_DAY',
+          from: "2015-04-12T14:30:00.000Z",
+          to: "2015-04-13T14:30:00.000Z",
+        })
+    ).toEqual(
+      {
+        "usally generated string by uuid": { 
+          start: "2015-04-12T14:00:00.000Z", 
+          end: "2015-04-12T16:00:00.000Z",
+          project: "projectID",},
+        "2usally generated string by uuid": { 
+          start: "2015-04-12T14:00:00.000Z", 
+          end: "2015-04-12T16:00:00.000Z",
+          project: "projectID",},
+        "a": { 
+          start: "2015-04-13T14:00:00.000Z", 
+          end: "2015-04-13T16:00:00.000Z",
+          project: "projectID",},
+        "b": { 
+          start: "2015-04-13T14:00:00.000Z", 
+          end: "2015-04-13T16:00:00.000Z",
+          project: "projectID",}
+      }, 
+    )
+  })
+  */
 })

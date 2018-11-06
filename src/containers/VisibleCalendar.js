@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { newEventModal, updateEvent, selectEventModal } from '../actions'
+import { newEventModal, updateEvent, selectEventModal, copyDay } from '../actions'
 import Calendar from '../components/Calendar'
+
 
 const mapStateToProps = state => {
 
@@ -35,6 +36,10 @@ const mapDispatchToProps = dispatch => ({
   selectEventModal: ({id}) => {
     dispatch(selectEventModal(id))
   },
+
+  copyToToday: (fromDate) => {
+    dispatch(copyDay(fromDate, new Date()))
+  }
 })
 
 

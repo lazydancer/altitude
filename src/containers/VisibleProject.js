@@ -1,16 +1,7 @@
 import { connect } from 'react-redux'
 import Project from '../components/Project'
 import { updateColor, updateProjectName, deleteProject } from '../actions'
-
-
-const isSameDay = (dateOne, dateTwo) => {
-  return ( 
-    dateOne.getDate() === dateTwo.getDate()
-    && dateOne.getMonth() === dateTwo.getMonth()
-    && dateOne.getFullYear() === dateTwo.getFullYear()
-  )
-}
-
+import { isSameDay } from '../constants'
 
 const mapStateToProps = (state, ownProps) => {
 

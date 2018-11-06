@@ -21,6 +21,11 @@ export const deleteEvent = id => ({
   id
 })
 
+export const copyDay = (fromDate, toDate) => ({
+  type: 'COPY_DAY',
+  from: fromDate,
+  to: toDate
+})
 
 export const addProject = (title) => ({
   type: 'ADD_PROJECT',

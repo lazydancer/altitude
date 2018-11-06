@@ -8,3 +8,11 @@ export const Colors = {
   TEAL:"#14B5D0",
   PURPLE: "#735DD0",
 }
+
+export const isSameDay = (dateOne, dateTwo) => {
+  return ( 
+    dateOne.getDate() === dateTwo.getDate()
+    && dateOne.getMonth() === dateTwo.getMonth()
+    && dateOne.getFullYear() === dateTwo.getFullYear()
+  )
+}
