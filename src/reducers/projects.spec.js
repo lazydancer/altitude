@@ -17,6 +17,7 @@ describe('projects reducer', () => {
     ).toEqual({ 
       'Hello': {
         title: 'Reading',
+        color: '#425A70',
       }
     })
   })

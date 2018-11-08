@@ -55,6 +55,7 @@ const Project = ({project, totalHours, updateProjectName, deleteProject, daysCha
     </SelectField>
 
     <Button 
+      appearance={"minimal"}
       is={Link}
       to={"/"}
       marginRight={12} 
@@ -62,7 +63,7 @@ const Project = ({project, totalHours, updateProjectName, deleteProject, daysCha
       intent="danger"
       onClick = {()=>deleteProject(project.id)}
     >
-      Delete and remove events
+      Delete Project
     </Button>
 
 

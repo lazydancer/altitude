@@ -5,6 +5,7 @@ const projects = (state = {}, action ) => {
         ...state,
         [action.id]: {
           title: action.title,
+          color: '#425A70'
         }
       }
     case 'UPDATE_COLOR':
